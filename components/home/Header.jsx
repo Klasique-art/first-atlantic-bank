@@ -22,9 +22,8 @@ const Header = () => {
 
   return (
     <>
-      <section className="h-screen relative overflow-hidden flex flex-col items-center justify-center text-center px-4 bg-[var(--color-accent)] text-white">
+      <section className="min-h-screen relative overflow-hidden flex flex-col items-center justify-center text-center px-4 bg-[var(--color-accent)] text-white">
         {/* Background Sparkles */}
-        <SparklesCore className="absolute inset-0 z-0" />
 
         {/* Floating Gradient Blobs */}
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-3xl animate-float-slow z-0" />

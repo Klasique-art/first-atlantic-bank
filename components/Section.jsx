@@ -3,7 +3,7 @@ import React from 'react'
 const Section = ({children}) => {
   return (
     <section className='bg-accent py-6'>
-        <div className="section-wrapper">
+        <div className="max-w-7xl mx-auto">
             {children}
         </div>
     </section>

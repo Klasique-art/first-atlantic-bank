@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
-import { NavBar, Header } from "@/components";
+import { useEffect } from "react";
+import { NavBar, Header, MiniGame } from "@/components";
 import Aos from "aos";
 import "aos/dist/aos.css"
 
@@ -25,6 +23,7 @@ const Home = () => {
     <main className="relative overflow-x-hidden">
       <NavBar />
       <Header />
+      <MiniGame />
     </main>
   );
 };

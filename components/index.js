@@ -4,6 +4,9 @@ import Header from "./home/Header";
 import ConfettiFall from "./ui/ConfettiFall";
 import Hero1 from "./home/Hero1";
 import Timeline from "./Timeline";
+import Section from "./Section";
+import MiniGame from "./MiniGame";
+import TypingText from "./TypingText";
 
 export {
     NavBar, 
@@ -11,5 +14,8 @@ export {
     Header,
     ConfettiFall,
     Hero1,
-    Timeline
+    Timeline,
+    Section,
+    MiniGame,
+    TypingText,
  };
