@@ -7,6 +7,7 @@ import Timeline from "./Timeline";
 import Section from "./Section";
 import MiniGame from "./MiniGame";
 import TypingText from "./TypingText";
+import TourSection from "./home/TourSection";
 
 export {
     NavBar, 
@@ -18,4 +19,5 @@ export {
     Section,
     MiniGame,
     TypingText,
+    TourSection,
  };

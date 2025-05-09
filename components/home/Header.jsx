@@ -70,7 +70,7 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Take the Tour
+          Learn more about FAB
         </motion.button>
 
         {/* Down arrow indicator */}

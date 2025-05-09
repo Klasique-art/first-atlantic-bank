@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -29,8 +30,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   overflow-x: hidden;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .animate-float-slow {
@@ -116,4 +119,17 @@ button {
   background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.atm-page {
+  background-image: url("https://img.freepik.com/free-vector/atm-machine-isolated-white-background_1308-101811.jpg?t=st=1746800652~exp=1746804252~hmac=3136e80e1d3b166c0eb2a38dd9c2b966a1bfd3584540a577a7618857e2cdb09e&w=740");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+
+.d {
+  background: radial-gradient(circle at 90% 85%, rgba(90, 27, 76,0.7) 0%, rgba(78, 22, 66, 0.2) 30%, transparent 70%);
+  color: rgb(90, 27, 76);
 }

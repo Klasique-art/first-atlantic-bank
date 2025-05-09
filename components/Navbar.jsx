@@ -43,18 +43,18 @@ const NavBar = () => {
           <Image src={logo} className="w-12" alt="logo" />
         </Link>
         <div className="space-x-6 text-[var(--color-secondary)] text-sm">
-          <Link href="/about" className="hover:underline">
+          {/* <Link href="/about" className="hover:underline">
             About
-          </Link>
+          </Link> */}
           <Link href="/features" className="hover:underline">
             Features
           </Link>
-          <Link href="/awards" className="hover:underline">
+          {/* <Link href="/awards" className="hover:underline">
             Awards
           </Link>
           <Link href="/contact" className="hover:underline">
             Contact
-          </Link>
+          </Link> */}
         </div>
       </div>
     </motion.nav>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { NavBar, Header, MiniGame } from "@/components";
+import { NavBar, Header, MiniGame, TourSection } from "@/components";
 import Aos from "aos";
 import "aos/dist/aos.css"
 
@@ -24,6 +24,7 @@ const Home = () => {
       <NavBar />
       <Header />
       <MiniGame />
+      <TourSection />
     </main>
   );
 };
