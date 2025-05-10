@@ -6,6 +6,7 @@ import Link from 'next/link'
 const TourSection = () => {
   return (
     <Section>
+            <p className='text-center'>Please refresh the page if you don't see anything here</p>
         <div className="h-screen flex justify-center items-center flex-col">
             <h1 className='text-6xl font-bold uppercase mb-4' data-aos="zoom-in">Tour Our Platform</h1>
             <p className='mb-8 text-lg' data-aos="fade-up" data-aos-delay="200">Learn how easy it is to use our platform. There's a reason we're #1</p>

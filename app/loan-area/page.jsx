@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { loanOptions } from '@/staticData';
 import { ProcessingAnimation, MainButton } from '@/components/tour';
 import ActionButton from '@/components/tour/loan/ActionButton';
+import Link from 'next/link';
 
 const LoanAreaPage = () => {
   // Loan application state management
@@ -147,6 +148,9 @@ const LoanAreaPage = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900 p-4">
+      <Link href="/tour" className='absolute top-5 left-5 text-white bg-primary px-6 py-4 rounded-full'>
+              <p>Go back</p>
+            </Link>
       {/* Loan Portal Physical Casing */}
       <div className="relative max-w-4xl w-full">
         {/* Header with bank logo */}
@@ -465,7 +469,7 @@ const LoanAreaPage = () => {
                               type="text"
                               value={personalInfo.income}
                               onChange={(e) => handleInputChange('income', formatCurrency(e.target.value))}
-                              className="w-full bg-gray-900 border border-purple-800 rounded-md py-2 px-8 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                              className="w-full bg-gray-900 border border-purple-800 rounded-md py-2 pl-14 pr-8 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                               placeholder="Enter your annual income"
                             />
                           </div>

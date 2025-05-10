@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 
 import { services, availableDates, availableTimes, branchLocations, tabVariants, itemVariants, contentVariants, chatBubbleVariants } from '@/staticData';
+import Link from 'next/link';
 
 const CustomerServicePage = () => {
   // State management
@@ -276,7 +277,7 @@ const CustomerServicePage = () => {
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-purple-900">
       {/* Animated Header */}
       <motion.header 
-        className="sticky top-0 z-50 bg-gradient-to-r from-purple-900 to-purple-700 text-white flex items-center justify-between px-6"
+        className="sticky top-0 z-50 bg-gradient-to-r from-primary to-primary-100 text-white flex items-center justify-between px-6"
         initial={{ height: '80px' }}
         animate={headerControls}
       >
@@ -285,14 +286,16 @@ const CustomerServicePage = () => {
             className="h-10 w-10 rounded-full bg-white flex items-center justify-center"
             whileHover={{ rotate: 360, transition: { duration: 0.5 } }}
           >
-            <span className="text-purple-800 text-lg font-bold">FAB</span>
+            <span className="text-primary text-lg font-bold">FAB</span>
           </motion.div>
           <div>
             <h1 className="text-2xl font-bold">First Atlantic Bank</h1>
             <p className="text-xs text-purple-200">Customer Support Center</p>
           </div>
         </div>
-        
+        <Link href="/tour" className=' text-white bg-primary px-6 py-4 rounded-full'>
+        <p>Go back</p>
+      </Link>
         <motion.div 
           className="bg-white/20 rounded-full p-2 flex items-center overflow-hidden backdrop-blur-sm"
           animate={searchControls}
@@ -310,6 +313,7 @@ const CustomerServicePage = () => {
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
+          
         </motion.div>
       </motion.header>
 
@@ -324,7 +328,7 @@ const CustomerServicePage = () => {
             whileHover="hover"
             onClick={() => setActiveTab(tab)}
             className={`flex-1 py-3 px-4 rounded-md font-medium ${
-              activeTab === tab ? 'bg-purple-800 text-white' : ''
+              activeTab === tab ? 'bg-primary text-white' : ''
             }`}
           >
             {tab === 'support' && (
@@ -446,7 +450,7 @@ const CustomerServicePage = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <motion.div
-                      className="absolute inset-0 bg-purple-600 opacity-10"
+                      className="absolute inset-0 bg-primary opacity-10"
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
                       transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
@@ -457,7 +461,7 @@ const CustomerServicePage = () => {
                     </p>
                     <motion.button
                       onClick={() => setShowChat(true)}
-                      className="bg-purple-600 hover:bg-purple-700 text-white py-3 px-8 rounded-full font-medium"
+                      className="bg-primary hover:bg-primary text-white py-3 px-8 rounded-full font-medium"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -473,7 +477,7 @@ const CustomerServicePage = () => {
                   animate="visible"
                 >
                   {/* Chat Header */}
-                  <div className="bg-purple-800 p-4 flex items-center justify-between">
+                  <div className="bg-primary p-4 flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="relative">
                         <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center text-purple-800 font-bold text-md">
@@ -511,7 +515,7 @@ const CustomerServicePage = () => {
                           <div 
                             className={`max-w-xs sm:max-w-sm md:max-w-md rounded-2xl px-4 py-3 ${
                               message.sender === 'user' 
-                                ? 'bg-purple-600 text-white rounded-br-none' 
+                                ? 'bg-primary text-white rounded-br-none' 
                                 : 'bg-gray-700 text-white rounded-bl-none'
                             }`}
                           >
@@ -551,7 +555,7 @@ const CustomerServicePage = () => {
                               
                               <div className="w-full bg-gray-600 rounded-full h-2 mb-4">
                                 <motion.div 
-                                  className="bg-purple-500 h-2 rounded-full"
+                                  className="bg-primary h-2 rounded-full"
                                   initial={{ width: 0 }}
                                   animate={{ width: `${100 - (queuePosition / 10) * 100}%` }}
                                   transition={{ duration: 1 }}
@@ -603,7 +607,7 @@ const CustomerServicePage = () => {
                                   onClick={() => setSelectedDate(date)}
                                   className={`p-2 rounded-lg text-left text-sm ${
                                     selectedDate?.date === date.date
-                                      ? 'bg-purple-600 text-white'
+                                      ? 'bg-primary text-white'
                                       : 'bg-gray-600 text-gray-200 hover:bg-gray-500'
                                   }`}
                                 >
@@ -624,7 +628,7 @@ const CustomerServicePage = () => {
                                   onClick={() => setSelectedTime(time)}
                                   className={`p-2 rounded-lg text-center text-sm ${
                                     selectedTime === time
-                                      ? 'bg-purple-600 text-white'
+                                      ? 'bg-primary text-white'
                                       : 'bg-gray-600 text-gray-200 hover:bg-gray-500'
                                   }`}
                                 >
@@ -649,8 +653,8 @@ const CustomerServicePage = () => {
                               whileTap={{ scale: 0.95 }}
                               className={`py-2 px-4 rounded-lg text-sm flex-1 ${
                                 selectedDate && selectedTime
-                                  ? 'bg-purple-600 hover:bg-purple-700 text-white'
-                                  : 'bg-purple-600/50 text-white/70 cursor-not-allowed'
+                                  ? 'bg-primary hover:bg-primary text-white'
+                                  : 'bg-primary/50 text-white/70 cursor-not-allowed'
                               }`}
                               onClick={handleSubmitSchedule}
                               disabled={!selectedDate || !selectedTime}
@@ -678,7 +682,7 @@ const CustomerServicePage = () => {
                             <motion.button
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
-                              className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg text-sm flex-1"
+                              className="bg-primary hover:bg-primary text-white py-2 px-4 rounded-lg text-sm flex-1"
                               onClick={handleJoinQueue}
                             >
                               Join Virtual Queue
@@ -687,7 +691,7 @@ const CustomerServicePage = () => {
                             <motion.button
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
-                              className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg text-sm flex-1"
+                              className="bg-primary hover:bg-primary text-white py-2 px-4 rounded-lg text-sm flex-1"
                               onClick={handleScheduleCall}
                             >
                               Schedule Callback
@@ -715,7 +719,7 @@ const CustomerServicePage = () => {
                       />
                       <motion.button
                         onClick={handleSendMessage}
-                        className="bg-purple-600 hover:bg-purple-700 rounded-full w-10 h-10 flex items-center justify-center"
+                        className="bg-primary hover:bg-primary rounded-full w-10 h-10 flex items-center justify-center"
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         whileTap={{ scale: 0.9 }}
                       >
@@ -799,7 +803,7 @@ const CustomerServicePage = () => {
               </motion.div>
               
               <motion.div 
-                className="mt-10 bg-purple-900/30 rounded-xl p-6 border border-purple-800/50"
+                className="mt-10 bg-primary/30 rounded-xl p-6 border border-purple-800/50"
                 variants={itemVariants}
               >
                 <h3 className="text-xl font-bold text-white mb-4">Can't find what you're looking for?</h3>
@@ -811,7 +815,7 @@ const CustomerServicePage = () => {
                     setActiveTab('support');
                     setShowChat(true);
                   }}
-                  className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-5 rounded-lg font-medium"
+                  className="bg-primary hover:bg-primary text-white py-2 px-5 rounded-lg font-medium"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -876,7 +880,7 @@ const CustomerServicePage = () => {
                       </div>
                       
                       <motion.div
-                        className="w-12 h-12 bg-purple-700 rounded-full flex items-center justify-center"
+                        className="w-12 h-12 bg-primary rounded-full flex items-center justify-center"
                         whileHover={{ rotate: 360, transition: { duration: 0.5 } }}
                       >
                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="text-white">
@@ -888,7 +892,7 @@ const CustomerServicePage = () => {
                     
                     <div className="mt-4 pt-4 border-t border-gray-700 flex space-x-3">
                       <motion.button
-                        className="flex-1 bg-purple-700/30 hover:bg-purple-700/50 text-purple-300 rounded-lg py-2"
+                        className="flex-1 bg-primary/30 hover:bg-primary/50 text-purple-300 rounded-lg py-2"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                       >
@@ -896,7 +900,7 @@ const CustomerServicePage = () => {
                       </motion.button>
                       
                       <motion.button
-                        className="flex-1 bg-purple-700/30 hover:bg-purple-700/50 text-purple-300 rounded-lg py-2"
+                        className="flex-1 bg-primary/30 hover:bg-primary/50 text-purple-300 rounded-lg py-2"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                       >
@@ -911,7 +915,7 @@ const CustomerServicePage = () => {
                 className="mt-10 bg-gray-800 rounded-xl overflow-hidden"
                 variants={itemVariants}
               >
-                <div className="bg-purple-900/30 p-6">
+                <div className="bg-primary/30 p-6">
                   <h3 className="text-xl font-bold text-white mb-2">Branch Banking Hours</h3>
                   <p className="text-purple-200">
                     Our standard banking hours across all branches:
@@ -983,7 +987,7 @@ const CustomerServicePage = () => {
                       whileHover={{ scale: 1.02 }}
                     >
                       <div className="flex items-center space-x-3 mb-4">
-                        <div className="h-12 w-12 rounded-full bg-purple-700 flex items-center justify-center text-white text-xl">
+                        <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white text-xl">
                           ⭐
                         </div>
                         <h3 className="text-xl font-bold text-white">Rate Our Service</h3>
@@ -993,7 +997,7 @@ const CustomerServicePage = () => {
                       </p>
                       <motion.button
                         onClick={() => setShowFeedbackForm(true)}
-                        className="bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-medium w-full"
+                        className="bg-primary hover:bg-primary text-white py-3 px-6 rounded-lg font-medium w-full"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -1007,7 +1011,7 @@ const CustomerServicePage = () => {
                       whileHover={{ scale: 1.02 }}
                     >
                       <div className="flex items-center space-x-3 mb-4">
-                        <div className="h-12 w-12 rounded-full bg-purple-700 flex items-center justify-center text-white text-xl">
+                        <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white text-xl">
                           🎁
                         </div>
                         <h3 className="text-xl font-bold text-white">Suggest Improvements</h3>
@@ -1020,7 +1024,7 @@ const CustomerServicePage = () => {
                           setActiveTab('support');
                           setShowChat(true);
                         }}
-                        className="bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-medium w-full"
+                        className="bg-primary hover:bg-primary text-white py-3 px-6 rounded-lg font-medium w-full"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -1030,7 +1034,7 @@ const CustomerServicePage = () => {
                   </motion.div>
                   
                   <motion.div 
-                    className="bg-purple-900/30 rounded-xl p-6 border border-purple-800/50"
+                    className="bg-primary/30 rounded-xl p-6 border border-purple-800/50"
                     variants={itemVariants}
                   >
                     <h3 className="text-xl font-bold text-white mb-4">Your Opinion Matters</h3>
@@ -1050,7 +1054,7 @@ const CustomerServicePage = () => {
                   className="bg-gray-800 rounded-xl overflow-hidden shadow-lg"
                   variants={contentVariants}
                 >
-                  <div className="bg-purple-900 p-5">
+                  <div className="bg-primary p-5">
                     <div className="flex justify-between items-center">
                       <h3 className="text-xl font-bold text-white">Feedback Form</h3>
                       <motion.button
@@ -1112,7 +1116,7 @@ const CustomerServicePage = () => {
                         onClick={handleSubmitFeedback}
                         className={`flex-1 py-3 rounded-lg font-medium ${
                           rating > 0 
-                            ? 'bg-purple-600 hover:bg-purple-700 text-white' 
+                            ? 'bg-purple-600 hover:bg-primary text-white' 
                             : 'bg-purple-600/50 text-white/70 cursor-not-allowed'
                         }`}
                         whileHover={rating > 0 ? { scale: 1.03 } : {}}

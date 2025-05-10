@@ -1,28 +1,48 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import confetti from 'canvas-confetti'
 import { useInView } from 'react-intersection-observer'
 
 const Timeline = ({ image, heading, description, reverse = false }) => {
+  const imageRef = useRef(null)
+  const hasExploded = useRef(false)
+  const [hideImage, setHideImage] = useState(false)
+
   const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.3, // trigger when 30% of the element is visible
+    triggerOnce: true,
+    threshold: 0.3,
   })
 
-  // Animation variant
-  const imageVariants = {
-    hidden: {
-      x: reverse ? 100 : -100,
-      opacity: 0,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        ease: 'easeOut',
-      },
-    },
-  }
+  useEffect(() => {
+    const handleScrollEvent = () => {
+      if (!hasExploded.current && imageRef.current) {
+        const rect = imageRef.current.getBoundingClientRect()
+        const imageHeight = rect.height
+        const visibleHeight =
+          Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0)
+
+        // Check if at least half of the image is visible
+        const halfVisible = visibleHeight >= imageHeight / 2
+
+        if (halfVisible) {
+          const x = (rect.left + rect.width / 2) / window.innerWidth
+          const y = (rect.top + rect.height / 2) / window.innerHeight
+
+          confetti({
+            particleCount: 150,
+            spread: 80,
+            origin: { x, y },
+          })
+
+          hasExploded.current = true
+          setHideImage(true)
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScrollEvent)
+    return () => window.removeEventListener('scroll', handleScrollEvent)
+  }, [])
 
   return (
     <section className="w-full py-12 px-4 md:px-12 bg-accent">
@@ -33,18 +53,21 @@ const Timeline = ({ image, heading, description, reverse = false }) => {
         }`}
       >
         {/* Image */}
-        <motion.div
-          variants={imageVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="w-full md:w-1/2 hover:scale-105 transition duration-300 ease-in-out"
-        >
-          <img
-            src={image}
-            alt={heading}
-            className="w-full h-auto rounded-2xl shadow-xl object-cover"
-          />
-        </motion.div>
+        {!hideImage && (
+          <motion.div
+            ref={imageRef}
+            initial={{ opacity: 1, scale: 1 }}
+            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full md:w-1/2 hover:scale-105 transition duration-300 ease-in-out"
+          >
+            <img
+              src={image}
+              alt={heading}
+              className="w-full h-auto rounded-2xl shadow-xl object-cover"
+            />
+          </motion.div>
+        )}
 
         {/* Content */}
         <motion.div

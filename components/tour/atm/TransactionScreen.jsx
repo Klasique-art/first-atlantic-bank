@@ -53,7 +53,7 @@ const TransactionScreen = ({
             Transaction Successful
           </div>
           <div className="text-gray-500 text-xs text-center">
-            Thank you for using SecureBank ATM
+            Thank you for using First Atlantic Bank ATM
           </div>
         </div>
       ) : (

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ActionButton, MainButton, ProcessingAnimation, TransactionScreen } from '.';
+import Link from 'next/link';
 
 const AtmArea = () => {
   // ATM state management
@@ -94,6 +95,9 @@ const AtmArea = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900 p-5">
+      <Link href="/tour" className='absolute top-5 left-5 text-white bg-primary px-6 py-4 rounded-full'>
+        <p>Go back</p>
+      </Link>
       {/* ATM Physical Casing */}
       <div className="relative max-w-4xl w-full">
         {/* ATM Header with bank logo and card slot */}
