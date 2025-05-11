@@ -8,7 +8,7 @@ const Welcome = ({ onContinue }) => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.8, ease: 'easeInOut' }}
-      className="bg-primary shadow-2xl rounded-2xl p-8 max-w-lg w-full text-center"
+      className="bg-primary shadow-2xl rounded-2xl p-8 max-w-lg w-full text-center" 
     >
         
       <h1 className="text-2xl uppercase font-bold text-white mb-4 text-shadow-2xs bg-black/10" data-aos="fade-up" data-aos-delay="200">

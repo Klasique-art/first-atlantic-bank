@@ -10,6 +10,7 @@ import ProcessingAnimation from "./atm/ProcessingAnimation";
 import KeypadButton from "./atm/KeypadButton";
 import MainButton from "./atm/MainButton";
 import ExitButton from "./zones/ExitButton";
+import BankLobbyScene from "../BankLobbyScene";
 
 export {
   Welcome,
@@ -24,4 +25,5 @@ export {
   KeypadButton,
   MainButton,
   ExitButton,
+  BankLobbyScene
 };
