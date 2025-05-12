@@ -8,6 +8,7 @@ import Section from "./Section";
 import MiniGame from "./MiniGame";
 import TypingText from "./TypingText";
 import TourSection from "./home/TourSection";
+import Intro from "./toon/Intro";
 
 export {
     NavBar, 
@@ -20,4 +21,5 @@ export {
     MiniGame,
     TypingText,
     TourSection,
+    Intro
  };

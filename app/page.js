@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { NavBar, Header, MiniGame, TourSection } from "@/components";
+import { NavBar, Header, MiniGame, TourSection, Intro } from "@/components";
 import Aos from "aos";
 import "aos/dist/aos.css"
 
@@ -23,6 +23,7 @@ const Home = () => {
     <main className="relative overflow-x-hidden">
       <NavBar />
       <Header />
+      <Intro />
       <MiniGame />
       <TourSection />
     </main>
